@@ -6,55 +6,122 @@
 <title>Smart Discover</title>
 
 <style>
-body{
+*{
     margin:0;
-    font-family:Arial,sans-serif;
-    background:#0f172a;
-    color:white;
-    text-align:center;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
 }
 
-header{
+body{
+    background:#0f172a;
+    color:white;
+}
+
+/* شريط علوي */
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 30px;
     background:#1e293b;
-    padding:60px 20px;
+    position:sticky;
+    top:0;
+}
+
+nav a{
+    color:white;
+    margin:0 10px;
+    text-decoration:none;
+    font-size:14px;
+    opacity:0.8;
+}
+
+nav a:hover{
+    opacity:1;
+}
+
+/* الهيدر */
+header{
+    text-align:center;
+    padding:100px 20px;
+    background:linear-gradient(120deg,#1e293b,#0f172a);
 }
 
 header h1{
-    font-size:48px;
-    margin-bottom:10px;
+    font-size:55px;
 }
 
 header p{
-    font-size:20px;
-    opacity:.9;
+    margin-top:10px;
+    opacity:0.8;
 }
 
 .btn{
-    display:inline-block;
-    margin-top:20px;
-    padding:12px 25px;
-    background:white;
-    color:#0f172a;
-    text-decoration:none;
+    margin-top:25px;
+    padding:12px 28px;
+    border:none;
     border-radius:30px;
+    background:#38bdf8;
+    color:black;
     font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
 }
 
+.btn:hover{
+    transform:scale(1.1);
+}
+
+/* الأقسام */
 section{
-    padding:50px 20px;
+    padding:60px 20px;
+    text-align:center;
+}
+
+.cards{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+    margin-top:20px;
 }
 
 .card{
     background:#1e293b;
-    margin:15px auto;
-    max-width:700px;
     padding:25px;
+    width:250px;
     border-radius:15px;
+    transition:0.3s;
 }
 
+.card:hover{
+    transform:translateY(-8px);
+    background:#273449;
+}
+
+/* عداد */
+.counter{
+    font-size:45px;
+    color:#38bdf8;
+    font-weight:bold;
+}
+
+/* تواصل */
+input,textarea{
+    width:90%;
+    max-width:400px;
+    padding:10px;
+    margin:5px;
+    border-radius:10px;
+    border:none;
+}
+
+/* فوتر */
 footer{
-    background:#1e293b;
     padding:20px;
+    text-align:center;
+    background:#1e293b;
     margin-top:30px;
 }
 </style>
@@ -62,50 +129,90 @@ footer{
 
 <body>
 
-<header>
+<!-- القائمة -->
+<nav>
+    <div><b>Smart Discover</b></div>
+    <div>
+        <a href="#home">الرئيسية</a>
+        <a href="#services">الخدمات</a>
+        <a href="#contact">تواصل</a>
+    </div>
+</nav>
+
+<!-- الهيدر -->
+<header id="home">
     <h1>🚀 Smart Discover</h1>
-    <p>اكتشف المحتوى، تعلم مهارات جديدة، وابدأ رحلتك الرقمية</p>
-    <a href="#services" class="btn">ابدأ الآن</a>
+    <p>منصة احترافية لتعلم وتطوير مهارات الويب</p>
+    <button class="btn" onclick="start()">ابدأ الآن</button>
 </header>
 
+<!-- إحصائيات -->
+<section>
+    <h2>📊 إحصائيات</h2>
+    <div class="counter" id="count">0</div>
+</section>
+
+<!-- الخدمات -->
 <section id="services">
-    <h2>✨ ماذا ستجد هنا؟</h2>
+    <h2>💡 خدماتنا</h2>
 
-    <div class="card">
-        <h3>📚 محتوى تعليمي</h3>
-        <p>مقالات وأفكار تساعدك على تطوير مهاراتك التقنية.</p>
-    </div>
+    <div class="cards">
+        <div class="card">
+            <h3>📚 تعلم</h3>
+            <p>تعلم أساسيات الويب خطوة بخطوة</p>
+        </div>
 
-    <div class="card">
-        <h3>💡 أفكار ومشاريع</h3>
-        <p>استكشف مشاريع وتجارب عملية لتطوير خبراتك.</p>
-    </div>
+        <div class="card">
+            <h3>🛠 تطبيق</h3>
+            <p>مشاريع عملية حقيقية</p>
+        </div>
 
-    <div class="card">
-        <h3>🌐 عالم الويب</h3>
-        <p>تعرف على أساسيات تطوير المواقع والتقنيات الحديثة.</p>
-    </div>
-</section>
-
-<section>
-    <h2>⭐ مميزات الموقع</h2>
-    <div class="card">
-        <p>✔ تصميم بسيط وأنيق</p>
-        <p>✔ متوافق مع الجوال</p>
-        <p>✔ سريع وسهل التصفح</p>
+        <div class="card">
+            <h3>🚀 احتراف</h3>
+            <p>الانتقال لمستوى متقدم</p>
+        </div>
     </div>
 </section>
 
-<section>
-    <h2>📞 تواصل</h2>
-    <div class="card">
-        <p>يسعدنا استقبال اقتراحاتكم وآرائكم.</p>
-    </div>
+<!-- تواصل -->
+<section id="contact">
+    <h2>📩 تواصل معنا</h2>
+
+    <input type="text" placeholder="اسمك"><br>
+    <input type="email" placeholder="بريدك"><br>
+    <textarea placeholder="رسالتك"></textarea><br>
+    <button class="btn" onclick="send()">إرسال</button>
 </section>
 
+<!-- الفوتر -->
 <footer>
-    <p>© 2026 Smart Discover</p>
+    © 2026 Smart Discover
 </footer>
+
+<script>
+// زر البداية
+function start(){
+    alert("أهلاً بك في المستوى الاحترافي 🚀");
+}
+
+// عداد متحرك
+let count = 0;
+let target = 2500;
+
+let interval = setInterval(()=>{
+    count += 30;
+    document.getElementById("count").innerText = count;
+
+    if(count >= target){
+        clearInterval(interval);
+    }
+}, 15);
+
+// إرسال
+function send(){
+    alert("تم إرسال الرسالة بنجاح ✔");
+}
+</script>
 
 </body>
 </html>
